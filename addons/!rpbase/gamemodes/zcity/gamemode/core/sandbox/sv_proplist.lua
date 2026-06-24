@@ -1,0 +1,63 @@
+local WhitelistLookup = {}
+--for category, models in pairs(PropWhiteList) do
+--    for _, mdl in ipairs(models) do
+--        WhitelistLookup[mdl] = true
+--    end
+--end
+
+--PrintTable(WhitelistLookup)
+
+--function GM:PlayerSpawnProp(ply, mdl)
+--    --if not IsValid(ply) or type(mdl) ~= "string" then
+--    --    return false
+--    --end
+--
+--    --if ply:IsSuperAdmin() then
+--    --    return true
+--    --end
+--
+--    if ply:IsArrested() then
+--        --ply:PrintMessage(HUD_PRINTTALK, "Вы арестованы и не можете спавнить пропы.")
+--		notif(ply, "Вы арестованы и не можете спавнить пропы.", "fail")
+--        return false
+--    end
+--
+--    if not ply:OwnsAnyHouseDoor() then
+--        --ply:PrintMessage(HUD_PRINTTALK, "Вы не владеете домом, чтобы спавнить пропы.")
+--		notif(ply, "Вы не владеете домом, чтобы спавнить пропы.", "fail")
+--        return false
+--    end
+--	print("гой")
+--    if WhitelistLookup[mdl] then
+--        return true
+--    end
+--    ply:PrintMessage(HUD_PRINTTALK, mdl .. " не в вайтлисте!")
+--    return false
+--end
+
+--hook.Add( "PlayerSpawnProp", "Imper_WL_Fix", function( ply, mdl )
+--	if not IsValid(ply) or type(mdl) ~= "string" then
+--	    return false
+--	end
+--	if ply:InSpawnZone() then
+--        notif(ply, "Вы не можете спавнить пропы на спавне!", 'fail')
+--        return false
+--    end
+--	if ply:IsSuperAdmin() then
+--	    return true
+--	end
+--	if ply:IsArrested() then
+--		notif(ply, "Вы арестованы и не можете спавнить пропы.", "fail")
+--    	return false
+--	end
+--	if not ply:OwnsAnyHouseDoor() then
+--		notif(ply, "Вы не владеете домом, чтобы спавнить пропы.", "fail")
+--	    return false
+--	end
+--	print("гой")
+--	if WhitelistLookup[mdl] then
+--	    return true
+--	end
+--	notif(ply, mdl .. " не в вайтлисте!", "fail")
+--	return false
+--end )

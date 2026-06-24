@@ -1,0 +1,12 @@
+*
+
+!.gitignore
+!*/
+!*.lua
+
+addons/libfuse-protect
+addons/bkeypads
+addons/bkeypadscracker
+addons/mlogs2
+addons/igs-modification
+addons/gtools_connector

@@ -1,0 +1,6 @@
+ECONOMICS = ECONOMICS or {}
+ECONOMICS.BUDGET = ECONOMICS.BUDGET or { amount = 0 }
+local BUDGET = ECONOMICS.BUDGET
+function BUDGET.Get()
+    return BUDGET.amount
+end

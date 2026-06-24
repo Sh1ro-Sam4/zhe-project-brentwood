@@ -1,0 +1,497 @@
+-- shizlib.client("shizlib/client/surface_cl")
+-- shizlib.Crafting = shizlib.Crafting or {}
+
+-- shizlib.Resources = {
+--     ['can'] = {
+--         name = 'Банка',
+--         description = 'Это банка!?',
+--         icon = 'can',
+--         model = 'models/props_junk/PopCan01a.mdl',
+--     },
+--     ['dev'] = {
+--         name = 'Куб разработчика',
+--         description = 'Откуда и ззачем?',
+--         icon = 'can',
+--         model = 'models/hunter/blocks/cube025x025x025.mdl',
+--     },
+
+
+
+--     ['steel'] = {
+--         name = 'Сталь',
+--         description = 'Прогресс в сфере металлургии',
+--         icon = 'steel',
+--         model = 'models/mosi/fallout4/props/junk/components/steel.mdl',
+--     },
+--     ['aluminum'] = {
+--         name = 'Алюминий',
+--         description = 'Не самый лучший, но и не худший',
+--         icon = 'aluminum',
+--         model = 'models/mosi/fallout4/props/junk/components/aluminum.mdl',
+--     },
+--     ['copper'] = {
+--         name = 'Медь',
+--         description = 'Основа основ',
+--         icon = 'copper',
+--         model = 'models/mosi/fallout4/props/junk/components/copper.mdl',
+--     },
+--     ['lead'] = {
+--         name = 'Свинец',
+--         description = 'Радиация?',
+--         icon = 'plumbum',
+--         model = 'models/mosi/fallout4/props/junk/components/lead.mdl',
+--     },
+--     ['gold'] = {
+--         name = 'Золото',
+--         description = 'Золотой век',
+--         icon = 'gold-bars',
+--         model = 'models/mosi/fallout4/props/junk/components/gold.mdl',
+--     },
+--     ['silver'] = {
+--         name = 'Серебро',
+--         description = 'Серебрянный век',
+--         icon = 'silver',
+--         model = 'models/mosi/fallout4/props/junk/components/silver.mdl',
+--     },
+--     ['glass'] = {
+--         name = 'Стекло',
+--         description = 'Я тебя вижу!',
+--         icon = 'glass',
+--         model = 'models/mosi/fallout4/props/junk/components/glass.mdl',
+--     },
+--     ['tape'] = {
+--         name = 'Изолента',
+--         description = 'Я тебя вижу!',
+--         icon = 'tape',
+--         model = 'models/mosi/fallout4/props/junk/ducttape.mdl',
+--     },
+--     ['glue'] = {
+--         name = 'Клей',
+--         description = 'Склеил ласты',
+--         icon = 'glue',
+--         model = 'models/props_junk/metal_paintcan001a.mdl',
+--     },
+--     ['cloth'] = {
+--         name = 'Ткань',
+--         description = 'Я по твоему швея?',
+--         icon = 'textile',
+--         model = 'models/mosi/fallout4/props/junk/components/cloth.mdl',
+--     },
+--     ['wire'] = {
+--         name = 'Медные провода',
+--         description = 'А их можно будет сдать на медь?',
+--         icon = 'wire',
+--         model = 'models/quest/materials_wire.mdl',
+--     },
+--     ['battery'] = {
+--         name = 'Аккумулятор',
+--         description = 'Младший брат павербанка!',
+--         icon = 'battery',
+--         model = 'models/ammo/ammo_gauss.mdl',
+--     },
+--     ['battery_c'] = {
+--         name = 'Улучшенный Аккумулятор',
+--         description = 'Почти павербанк!',
+--         icon = 'upgraded_battery',
+--         model = 'models/ammo/ammo_gauss_custom.mdl',
+--     },
+--     ['motherboard'] = {
+--         name = 'Электросхема',
+--         description = 'Первые шаги в развитии электроники!',
+--         icon = 'motherboard',
+--         model = 'models/mosi/fallout4/props/junk/components/circuitry.mdl',
+--     },
+--     ['licence'] = {
+--         name = 'Лицензия на оружие',
+--         description = 'Да, я могу носить оружие!',
+--         icon = 'licence',
+--         model = 'models/props_lab/clipboard.mdl',
+--         funcUse = true,
+--         func = function(self, ply)
+--             DarkRP.notify(ply, 1, 4, 'Вы использовали "Лицензию на оружие"')
+--             ply:SetNWBool("HasGunlicense", true)
+--             self:Remove()
+--         end,
+--     },
+--     ['licencebes'] = {
+--         name = 'Лицензия на бизнес',
+--         description = 'Мы открывем бизнес!',
+--         icon = 'licence',
+--         model = 'models/props_lab/clipboard.mdl',
+--         funcUse = true,
+--         func = function(self, ply)
+--             DarkRP.notify(ply, 1, 4, 'Вы использовали "Лицензию на бизнес"')
+--             ply:SetNWBool("HasBeslicense", true)
+--             self:Remove()
+--         end,
+--     },
+--     ['pipe'] = {
+--         name = 'Труба',
+--         description = 'Тебе труба!',
+--         icon = 'pipe',
+--         model = 'models/props_canal/mattpipe.mdl',
+--     },
+--     ['piston'] = {
+--         name = 'Поршень',
+--         description = 'Подвинься',
+--         icon = 'piston',
+--         model = 'models/xqm/pistontype1.mdl',
+--     },
+--     ['rifle_barrel'] = {
+--         name = 'Ствол',
+--         description = 'Не целься в меня',
+--         icon = 'rifle_barrel',
+--         model = 'models/craftparts/basicrec/basicrec.mdl',
+--     },
+--     ['rifle_body'] = {
+--         name = 'Корпус',
+--         description = '',
+--         icon = 'rifle_body',
+--         model = 'models/items/item_item_crate.mdl',
+--     },
+--     ['rifle_butt'] = {
+--         name = 'Приклад',
+--         description = 'Держись',
+--         icon = 'rifle_butt',
+--         model = 'models/craftparts/basicbutt/basicbutt.mdl',
+--     },
+--     ['rifle_clip'] = {
+--         name = 'Магазин',
+--         description = 'А патроны не забыл?',
+--         icon = 'rifle_clip',
+--         model = 'models/craftparts/medmag/medmag.mdl',
+--     },
+--     ['screws'] = {
+--         name = 'Болты',
+--         description = 'Закручивай',
+--         icon = 'screws',
+--         model = 'models/mosi/fallout4/props/junk/components/screws.mdl',
+--     },
+--     ['spring'] = {
+--         name = 'Пружина',
+--         description = 'Отойди от меня',
+--         icon = 'spring',
+--         model = 'models/mosi/fallout4/props/junk/components/springs.mdl',
+--     },
+--     ['tools'] = {
+--         name = 'Инструменты',
+--         description = 'Без меня никуда!',
+--         icon = 'tools',
+--         model = 'models/mosi/fallout4/props/junk/modcrate.mdl',
+--     },
+--     ['wood'] = {
+--         name = 'Древесина',
+--         description = 'Первичный материал',
+--         icon = 'wood',
+--         -- model = 'models/mosi/fallout4/props/junk/components/wood.mdl',
+--         model = 'models/props_docks/channelmarker_gib01.mdl',
+--     },
+--     ['stone'] = {
+--         name = 'Камень',
+--         description = 'Вторичный материал',
+--         icon = 'stone',
+--         -- model = 'models/props_combine/breenbust_chunk06.mdl',
+--         model = 'models/props_junk/rock001a.mdl',
+--     },
+-- }
+
+-- shizlib.Looting = {
+--     ['trashcan'] = {
+--         name = 'Мусорка',
+--         model = 'models/props_trainstation/trashcan_indoor001b.mdl',
+--         amount = 1,
+--     },
+--     ['trashcan1'] = {
+--         name = 'Мусорка 2',
+--         model = 'models/props_junk/TrashDumpster01a.mdl',
+--         amount = math.random(1, 3),
+--     },
+-- }
+
+-- shizlib.Food = {
+--     ['toast'] = {
+--         name = 'Тост',
+--         model = 'models/foodnhouseholditems/toast.mdl',
+--         reg = 5,
+--     },
+--     ['cookedtoast'] = {
+--         name = 'Жареный тост',
+--         model = 'models/foodnhouseholditems/toast.mdl',
+--         reg = 15,
+--     },
+--     ['oil'] = {
+--         name = 'Масло',
+--         model = 'models/props_lab/jar01a.mdl',
+--         reg = 1,
+--     },
+--     ['cheesburger'] = {
+--         name = 'Чизбургер',
+--         model = 'models/foodnhouseholditems/burgersims2.mdl',
+--         reg = 35,
+--     },
+--     ['burger'] = {
+--         name = 'Гамбургер',
+--         model = 'models/foodnhouseholditems/burgergtaiv.mdl',
+--         reg = 30,
+--     },
+--     ['doublecheeseburger'] = {
+--         name = 'Двойной Чизбургер',
+--         model = 'models/foodnhouseholditems/mcdburger.mdl',
+--         reg = 60,
+--     },
+--     ['bread01'] = {
+--         name = 'Булка Хлеба',
+--         model = 'models/foodnhouseholditems/bread-1.mdl',
+--         reg = 10,
+--     },
+--     ['pickle'] = {
+--         name = 'Огурцы',
+--         model = 'models/foodnhouseholditems/picklejar.mdl',
+--         reg = 4,
+--     },
+--     ['cabbage'] = {
+--         name = 'Качан Капусты',
+--         model = 'models/foodnhouseholditems/cabbage1.mdl',
+--         reg = 10,
+--     },
+--     ['lettuce'] = {
+--         name = 'Лист Капусты',
+--         model = 'models/foodnhouseholditems/lettuce.mdl',
+--         reg = 4,
+--     },
+--     ['cheese'] = {
+--         name = 'Кусок сыра',
+--         model = 'models/foodnhouseholditems/cheesewheel1c.mdl',
+--         reg = 4,
+--     },
+--     ['meat9'] = {
+--         name = 'Сырое мясо',
+--         model = 'models/foodnhouseholditems/meat9.mdl',
+--         reg = 10,
+--     },
+--     ['meat9b'] = {
+--         name = 'Приготовленное мясо',
+--         model = 'models/foodnhouseholditems/meat9b.mdl',
+--         reg = 20,
+--     },
+-- }
+
+-- function shizlib.Crafting.LoadLooting()
+--     for k, v in pairs( shizlib.Looting ) do
+--         local ENT = {}
+--         ENT.Type = "anim"
+--         ENT.Base = "base_looting"
+
+--         ENT.PrintName = v.name
+--         ENT.Category		= "kasanov.resources.looting"
+--         ENT.Author			= "kasanov"
+
+--         ENT.Spawnable = true
+--         ENT.AdminSpawnable = true
+            
+--         ENT.LootType = k
+--         ENT.RespawnTime = 0
+
+--         function ENT:Use(activator, caller)
+--             if not self.cd or self.cd < CurTime() then
+--                 self.cd = CurTime() + 1
+--                 if v.customFuncUse then
+--                     return v.customFuncUse(self, activator, caller)
+--                 end
+--                 if self:GetPos():Distance(activator:GetPos()) >= CFG.useDist then return end
+--                 if self.RespawnTime > CurTime() then return activator:Notify('Мусорка пуста..', NOTIFY_GENERIC) end
+--                 local ply = activator
+--                 -- activator:TimedTask("l:progress_searching", 5, Color(40, 40, 40),
+--                 -- function()
+--                 --     return IsValid(self) and IsValid(ply) and ply:Alive() and ply:EyePos():Distance(ply:GetEyeTrace().HitPos) < 100 and ply:GetEyeTrace().Entity == self
+--                 -- end,
+--                 -- function()
+--                     if self.RespawnTime > CurTime() then return end
+--                     local amount = shizlib.Looting[self.LootType].amount
+--                     for i = 1, istable(amount) and math.random(amount[1], amount[2]) or amount do
+--                         local item = table.Random(CFG.lootingItemsTrashcan)
+--                         local ent = ents.Create('shizlib_resource_' .. item)
+--                         ent:SetPos(Vector(self:GetPos().x+math.random(1, 10),self:GetPos().y+math.random(1, 10),self:GetPos().z+40))
+--                         ent:Spawn()
+--                         ent:Activate()
+
+--                         hook.Run('shizlib:Looting', activator, item)
+
+--                         self.RespawnTime = CurTime() + 90
+
+--                         -- local chance = math.random(1, 2500)
+--                         -- -- shizlib.msg(chance)
+--                         -- if chance == 42 then
+--                         --     local ent = ents.Create('shizlib_resource_dev')
+--                         --     ent:SetPos(Vector(self:GetPos().x+math.random(1, 10),self:GetPos().y+math.random(1, 10),self:GetPos().z+40))
+--                         --     ent:Spawn()
+--                         --     ent:Activate()
+        
+--                         --     hook.Run('shizlib:Looting', activator, 'dev')
+--                         -- end
+--                     end
+--                 -- end)
+--             end
+--         end
+
+--         scripted_ents.Register( ENT, 'shizlib_looting_' .. string.Replace( string.lower( k ), " ", "" ) )
+--     end
+-- end
+
+-- shizlib.Crafting.LoadLooting()
+
+-- shizlib.bench = {
+--     ["workbench"] = {
+--         name = 'Верстак',
+--         model = 'models/brickscrafting/workbench_1.mdl',
+--     },
+--     ["stove"] = {
+--         name = 'Печь',
+--         model = 'models/props_wasteland/kitchen_stove002a.mdl',
+--     },
+--     -- ["stove"] = {
+--     --     name = 'Печь',
+--     --     model = 'models/props_lab/workspace004.mdl',
+--     -- },
+-- }
+
+-- function shizlib.Crafting.LoadBenches()
+--     for k, v in pairs( shizlib.bench ) do
+--         local ENT = {}
+--         ENT.Type = 'anim'
+--         ENT.Base = 'base_gmodentity'
+
+--         ENT.PrintName = v.name
+--         ENT.Author = 'kasanov'
+--         ENT.Category = 'kasanov.resources.benches'
+
+--         ENT.Spawnable = true
+--         ENT.AdminSpawnable = true
+
+--         function ENT:Initialize()
+--             self:SetModel(v.model)
+--             self:PhysicsInit( SOLID_VPHYSICS )
+--             self:SetMoveType( MOVETYPE_VPHYSICS )
+--             self:SetSolid( SOLID_VPHYSICS )
+--             self:SetHealth(100)
+--             local phys = self:GetPhysicsObject()
+--             if phys:IsValid() then
+--                 phys:Wake()
+--             end
+--         end
+
+--         function ENT:OnTakeDamage(dmginfo)
+--             self:SetHealth(self:Health() - dmginfo:GetDamage())
+--             if self:Health() <= 0 then
+--                 self:Remove()
+--             end
+--         end
+
+--         scripted_ents.Register( ENT, 'shizlib_bench_' .. string.Replace( string.lower( k ), " ", "" ) )
+--     end
+-- end
+
+-- shizlib.Crafting.LoadBenches()
+
+-- function shizlib.Crafting.LoadEntities()
+--     for k, v in pairs( shizlib.Resources ) do
+--         local ENT = {}
+--         ENT.Type = "anim"
+--         ENT.Base = "base_resources"
+
+--         ENT.PrintName = v.name
+--         ENT.Category		= "kasanov.resources.items"
+--         ENT.Author			= "kasanov"
+
+--         ENT.Spawnable = true
+--         ENT.AdminSpawnable = true
+            
+--         ENT.ResourceType = k
+
+--         function ENT:SetupDataTables()
+--             self:NetworkVar('String', 0, 'Resource')
+--             self:NetworkVar('Int', 1, 'RemoveTime')
+--         end
+
+--         if SERVER then
+--             function ENT:Initialize()
+--                 -- self:SetModel(v.model)
+--                 -- self:SetModel('models/hunter/blocks/cube025x025x025.mdl')
+--                 self:SetModel('models/props_junk/cardboard_box004a.mdl')
+--                 self:PhysicsInit(SOLID_VPHYSICS)
+--                 self:SetSolid(SOLID_VPHYSICS)
+--                 self:SetMoveType(MOVETYPE_VPHYSICS)
+--                 self:SetCollisionGroup(COLLISION_GROUP_NONE)
+--                 self:SetUseType(SIMPLE_USE)
+        
+--                 self:PhysWake()
+--                 self:Activate()
+--                 -- self:DrawShadow(false)
+        
+--                 local phys = self:GetPhysicsObject()
+--                 if IsValid(phys) then
+--                     phys:EnableMotion(true)
+--                 end
+
+--                 self:SetResource(k)
+--                 self:SetRemoveTime(CurTime() + 60)
+--             end
+--             function ENT:Think()
+--                 if not self.__NextThink or self.__NextThink < CurTime() then
+--                     self.__NextThink = CurTime() + .5
+--                 else
+--                     return
+--                 end
+--                 if self:GetRemoveTime() < CurTime() then
+--                     self:Remove()
+--                 end
+--             end
+--             if v.funcUse then
+--                 function ENT:Use(activator, caller)
+--                     if not self.cd or self.cd < CurTime() then
+--                         self.cd = CurTime() + 1
+--                         if self:GetPos():Distance(activator:GetPos()) >= CFG.useDist then return end
+
+--                         v.func(self, caller)
+--                     end
+--                 end
+--             end
+--         end
+
+--         if CLIENT then
+--             local colors = CFG.skinColors
+--             local DTR = shizlib.surface.DTR
+--             function ENT:Draw()
+--                 if self:GetPos():Distance(EyePos()) <= 1000 then
+--                     self:Draw3D2D()
+--                     self:DrawModel()
+--                 end
+--             end
+
+--             function ENT:Draw3D2D()
+--                 local Pos = Vector(self:GetPos().x, self:GetPos().y, self:GetPos().z + 30)
+--                 Pos = Pos + self:GetUp() * math.abs(math.sin(CurTime()) * 1)
+--                 local Ang = Angle(0, EyeAngles().y - 90, 90)
+            
+--                 cam.Start3D2D(Pos, Ang, 0.1)
+--                     -- draw.RoundedBox(23, -90, 0, 180, 180, ColorAlpha(Color(22, 22, 22), 150))
+--                     draw.RoundedBox(23, -55, 35, 110, 110, ColorAlpha(Color(22, 22, 22), 150))
+--                     draw.RoundedBox(23, -50, 40, 100, 100, ColorAlpha(Color(255, 77, 119), 150))
+--                     DTR(-30, 60, 60, 60, color_white, Material( ('shizlib/icon17/256/%s.png'):format(v.icon) ))
+--                     draw.SimpleText( v.name, 'font.30', 0, 160, color_white, 1, 1 )
+--                     draw.SimpleText( ('Удаление через %s'):format( shizlib.surface.FormatTime(math.Round(self:GetRemoveTime() - CurTime())) ), 'font.20', 0, 200, color_white, 1, 1 )
+--                 cam.End3D2D()
+--             end
+--         end
+
+--         scripted_ents.Register( ENT, 'shizlib_resource_' .. string.Replace( string.lower( k ), " ", "" ) )
+--     end
+-- end
+
+-- hook.Add('InitPostEntity', 'XeninUI.FixFunctions', function()
+
+--     shizlib.Crafting.LoadEntities()
+
+-- end)
+
+-- shizlib.Crafting.LoadEntities()

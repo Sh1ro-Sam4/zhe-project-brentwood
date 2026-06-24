@@ -1,0 +1,13 @@
+-- util.AddNetworkString("shizlib_mayor_command")
+-- net.Receive("shizlib_mayor_command", function(len, ply)
+--     if ply:GetPlayerClass() ~= TEAM_MAYOR then return end
+    
+--     local cmd = net.ReadString()
+--     if cmd == "toggle_curfew" then
+--         local active = net.ReadBool()
+--         shizlib.ToggleCurfew(active, "Mayor's Order")
+--     elseif cmd == "set_taxes" then
+--         local newRate = net.ReadFloat()
+--         shizlib.SetTaxRate("purchase", newRate)
+--     end
+-- end)

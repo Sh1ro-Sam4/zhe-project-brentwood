@@ -1,0 +1,16 @@
+include("shared.lua")
+function ENT:Draw()
+    self:DrawModel()
+    local count = self:GetNWInt("BeersCount", 0)
+    local max = 6
+    local ang = self:GetAngles()
+    ang:RotateAroundAxis(ang:Up(), 90)
+    ang:RotateAroundAxis(ang:Forward(), 90)
+    cam.Start3D2D(self:LocalToWorld(Vector(0, 0, 12)), ang, 0.1)
+        draw.SimpleTextOutlined("Самогон: " .. count .. " / " .. max, 'methFont', 0, 0, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0,0,0))
+    cam.End3D2D()
+    ang:RotateAroundAxis(ang:Right(), 180)
+    cam.Start3D2D(self:LocalToWorld(Vector(0, 0, 12)), ang, 0.1)
+        draw.SimpleTextOutlined("Самогон: " .. count .. " / " .. max, 'methFont', 0, 0, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0,0,0))
+    cam.End3D2D()
+end
